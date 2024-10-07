@@ -1,0 +1,41 @@
+[
+  {
+    "id": 1,
+    "title": "Championes de Mujer Adidas Runfalcon 5",
+    "description": "Alcanzá tus objetivos con los Runfalcon 5 de Adidas, diseñados para acompañarte desde la pista hasta la cinta de correr",
+    "code": "009.E0527",
+    "price": 30,
+    "stock": 250,
+    "category": "Dama",
+    "thumbnails": [
+      "https://www.stadium.com.uy/productos/championes-de-mujer-adidas-runfalcon-5-blanco-gris-marron_009.E0527_9573"
+    ],
+    "status": true
+  },
+  {
+    "id": 2,
+    "title": "Championes de Hombre Puma Skyrocket Lite Engineered",
+    "description": "Descubrí el equilibrio perfecto entre estilo y rendimiento con los championes Skyrocket Lite Engineered de Puma",
+    "code": "051.10100",
+    "price": 50,
+    "stock": 200,
+    "category": "Caballero",
+    "thumbnails": [
+      "https://www.stadium.com.uy/productos/championes-de-hombre-puma-skyrocket-lite-engineered-negro-gris_051.10100_0105"
+    ],
+    "status": true
+  },
+  {
+    "id": 3,
+    "title": "Championes de Niña Mini Miss Carol SMILEY tipo bota con aplique y estampa",
+    "description": "Top Deportivo Infantil",
+    "code": "145.25112",
+    "price": 20,
+    "stock": 150,
+    "category": "Infantil",
+    "thumbnails": [
+      "https://www.stadium.com.uy/productos/championes-de-nina-mini-miss-carol-smiley-tipo-bota-con-aplique-y-estampa-negro_145.25112_1000"
+    ],
+    "status": true
+  }
+]
