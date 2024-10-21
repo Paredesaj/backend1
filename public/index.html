@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prueba de Servidor</title>
+</head>
+<body>
+    <h1>Servidor en Funcionamiento</h1>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        const socket = io();
+        socket.on('productList', (products) => {
+            console.log(products); // Muestra la lista de productos en la consola
+        });
+
+        // Ejemplo de agregar un producto
+        const newProduct = { id: 1, title: "Producto de prueba", price: 100 };
+        socket.emit('addProduct', newProduct);
+    </script>
+</body>
+</html>

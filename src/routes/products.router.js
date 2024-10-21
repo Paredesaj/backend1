@@ -57,6 +57,7 @@ router.post("/", async (req, res) => {
       stock,
       category,
       thumbnails,
+      status : "true"
     });
 
     res.status(201).json(product);
