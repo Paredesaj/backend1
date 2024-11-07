@@ -5,14 +5,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Productos</title>
     <link rel="stylesheet" href="/css/style.css">
+    <script defer src="/js/scripts.js"></script>
 </head>
 <body>
     <h1>Lista de Productos</h1>
-    <ul>
+    
+    <div class="products">
         {{#each products}}
-            <li>{{this.title}} - {{this.price}} <button onclick="deleteProduct({{this.id}})">Eliminar</button></li>
+            <div class="product" id="product-{{this._id}}">
+                <h3>{{this.title}}</h3>
+                <p>{{this.description}}</p>
+                <p>Precio: ${{this.price}}</p>
+                <button class="add-to-cart" data-id="{{this._id}}">Agregar al carrito</button>
+                <a href="/products/{{this._id}}">Ver detalles</a>
+                <button class="delete-product" data-id="{{this._id}}">Eliminar</button>
+            </div>
         {{/each}}
-    </ul>
+    </div>
+
+    <div class="pagination">
+        {{#if hasPrevPage}}
+            <a href="{{prevLink}}">Página anterior</a>
+        {{/if}}
+        {{#if hasNextPage}}
+            <a href="{{nextLink}}">Página siguiente</a>
+        {{/if}}
+    </div>
+
     <a href="/realTimeProducts">Ver Productos en Tiempo Real</a>
 </body>
 </html>

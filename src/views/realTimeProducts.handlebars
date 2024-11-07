@@ -4,21 +4,60 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Productos en Tiempo Real</title>
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/style.css"> <!-- Estilo CSS -->
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/js/scripts.js" defer></script> <!-- Lógica JS -->
 </head>
 <body>
     <h1>Productos en Tiempo Real</h1>
-    <ul id="productList"></ul>
+
+    <!-- Mostrar los productos -->
+    <div class="products">
+        {{#each products}}
+            <div class="product" id="product-{{this._id}}">
+                <h3>{{this.title}}</h3>
+                <p>{{this.description}}</p>
+                <p>Precio: ${{this.price}}</p>
+                <button class="add-to-cart" data-id="{{this._id}}">Agregar al carrito</button>
+                <a href="/products/{{this._id}}">Ver detalles</a>
+                <button class="delete-product" data-id="{{this._id}}">Eliminar</button>
+            </div>
+        {{/each}}
+    </div>
+
+    <!-- Paginación -->
+    <div class="pagination">
+        {{#if hasPrevPage}}
+            <a href="{{prevLink}}">Página anterior</a>
+        {{/if}}
+        {{#if hasNextPage}}
+            <a href="{{nextLink}}">Página siguiente</a>
+        {{/if}}
+    </div>
+
+    <!-- Vista del carrito -->
+    <div id="cart-container">
+        <h2>Carrito de Compras</h2>
+        {{#each cart}}
+            <div class="cart-item">
+                <p>{{this.title}} - {{this.quantity}}</p>
+                <button onclick="deleteProduct('{{this.productId}}')">Eliminar</button>
+            </div>
+        {{/each}}
+    </div>
+
+    <!-- Formulario para agregar nuevos productos -->
+    <h2>Agregar Producto</h2>
     <form id="addProductForm">
         <input type="text" id="title" placeholder="Título" required>
+        <input type="text" id="description" placeholder="Descripción" required>
         <input type="text" id="code" placeholder="Código" required>
         <input type="number" id="price" placeholder="Precio" required>
         <input type="number" id="stock" placeholder="Stock" required>
         <input type="text" id="category" placeholder="Categoría" required>
-        <input type="text" id="thumbnail" placeholder="Thumbnail" required>
+        <input type="text" id="thumbnail" placeholder="Imagen" required>
         <button type="submit">Agregar Producto</button>
     </form>
-    <script src="/socket.io/socket.io.js"></script>
-    <script src="/js/scripts.js"></script>
+
 </body>
 </html>
